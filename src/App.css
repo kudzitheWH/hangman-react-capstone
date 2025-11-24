@@ -1,0 +1,86 @@
+.app-wrapper {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  background: #0b0f1a;
+  color: #f2f2f2;
+}
+
+.figure pre {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 10px auto 20px;
+}
+
+.word-display {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.letter-box {
+  width: 30px;
+  border-bottom: 3px solid #fff;
+  padding-bottom: 6px;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 6px;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.key-btn {
+  padding: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background: #1e2639;
+  color: white;
+  border-radius: 4px;
+}
+
+.key-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.status-bar {
+  margin: 10px 0;
+}
+
+.status-actions button {
+  margin: 0 6px;
+  padding: 8px 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.help-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: grid;
+  place-items: center;
+}
+
+.help-modal {
+  background: #151b2d;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 420px;
+  text-align: left;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: grid;
+  place-items: center;
+  color: white;
+}
