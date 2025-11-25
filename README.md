@@ -5,6 +5,7 @@ A simple Hangman game built with React. This project was created for the Stage 4
 ---
 
 ## How to Play
+
 1. Choose a game mode:
    - **Single Player (Timed: 2 minutes)**  
      Guess as many words as possible before the timer reaches 0.
@@ -19,16 +20,26 @@ A simple Hangman game built with React. This project was created for the Stage 4
 7. You win a round by guessing all letters.
 
 ### Timed Mode Rules
+
 - You have **2 minutes** total.
 - Every time you guess a word correctly, your **score increases by 1** and a new word loads instantly.
 - The game ends when the timer hits **0** and your final score is displayed.
 
 ### Help
+
 - Click the **Help / Rules** button at any time to view the rules.
 
 ---
 
-## How to Install and Run Locally
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/kudzitheWH/hangman-react-capstone.git
+## Prerequisites
+
+To run this project locally you need:
+
+- [Node.js](https://nodejs.org/) (v16+ recommended)
+- npm (comes bundled with Node.js)
+
+You can check if they are installed with:
+
+```bash
+node -v
+npm -v
