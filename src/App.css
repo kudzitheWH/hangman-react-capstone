@@ -1,19 +1,19 @@
-/* ── Stadium atmosphere theme ───────────────────────────────────────── */
+/* ── Stadium atmosphere — night-vision palette ──────────────────────── */
 
 .app-wrapper {
   position: relative;
   text-align: center;
-  padding: 20px 20px 80px;
+  padding: 20px 16px 80px;
   min-height: 100vh;
+  box-sizing: border-box;
 
-  /* Very dark night-stadium base with floodlight beams from top corners */
+  /* Dark stadium base — floodlights toned down for night vision */
   background: #060a07;
   background-image:
-    radial-gradient(ellipse 65% 55% at 3%  0%, rgba(255, 248, 180, 0.18) 0%, transparent 100%),
-    radial-gradient(ellipse 65% 55% at 97% 0%, rgba(255, 248, 180, 0.18) 0%, transparent 100%),
-    radial-gradient(ellipse 40% 25% at 50% 0%, rgba(255, 248, 180, 0.05) 0%, transparent 100%);
+    radial-gradient(ellipse 65% 50% at 3%  0%, rgba(255, 248, 180, 0.07) 0%, transparent 100%),
+    radial-gradient(ellipse 65% 50% at 97% 0%, rgba(255, 248, 180, 0.07) 0%, transparent 100%);
 
-  color: #d8f0dc;
+  color: #c8dece;
 }
 
 /* ── Pitch strip fixed at the bottom of the viewport ───────────────── */
@@ -23,15 +23,15 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 56px;
+  height: 52px;
   background: linear-gradient(180deg,
     transparent          0%,
-    rgba(6, 44, 16, 0.8) 30%,
-    #062e0e              100%
+    rgba(6, 40, 14, 0.85) 35%,
+    #04240a              100%
   );
-  border-top: 2px solid rgba(255, 255, 255, 0.35);
-  font-size: 1.8rem;
-  line-height: 56px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.6rem;
+  line-height: 52px;
   text-align: center;
   pointer-events: none;
   z-index: 100;
@@ -43,15 +43,14 @@
   line-height: 1.2;
   margin: 10px auto 20px;
   font-family: monospace;
-  color: #ff4444;
-  text-shadow:
-    0 0 8px  rgba(255, 68, 68, 0.9),
-    0 0 22px rgba(255, 68, 68, 0.4);
+  color: #a04040;
+  text-shadow: 0 0 10px rgba(160, 64, 64, 0.5);
 }
 
 /* ── Word display ───────────────────────────────────────────────────── */
 .word-display {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   font-size: 2rem;
@@ -60,109 +59,113 @@
 
 .letter-box {
   width: 30px;
-  border-bottom: 3px solid #00e86a;
+  border-bottom: 3px solid #4db870;
   padding-bottom: 6px;
-  color: #00e86a;
-  text-shadow:
-    0 0 8px  rgba(0, 232, 106, 0.9),
-    0 0 18px rgba(0, 232, 106, 0.4);
+  color: #4db870;
+  text-shadow: 0 0 6px rgba(77, 184, 112, 0.5);
 }
 
 /* ── Keyboard ───────────────────────────────────────────────────────── */
 .keyboard {
   display: grid;
-  grid-template-columns: repeat(13, 1fr);
-  gap: 6px;
-  max-width: 700px;
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+  gap: 5px;
+  max-width: 680px;
+  width: 100%;
   margin: 20px auto;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
+/* Laptop-style off-white keys with subtle backlight on hover */
 .key-btn {
-  padding: 8px;
+  padding: 9px 4px;
   font-weight: bold;
   cursor: pointer;
-  border: 1px solid rgba(0, 200, 80, 0.4);
-  background: rgba(6, 30, 12, 0.85);
-  color: #90d8a0;
-  border-radius: 4px;
+  border: 1px solid #a8a49c;
+  background: linear-gradient(180deg, #edebe7 0%, #d4d1cb 100%);
+  color: #1a1a1a;
+  border-radius: 5px;
   font-family: inherit;
-  font-size: 0.55rem;
-  text-shadow: 0 0 4px rgba(144, 216, 160, 0.5);
-  box-shadow: inset 0 0 4px rgba(0, 200, 80, 0.05);
-  transition: background 0.12s ease, box-shadow 0.12s ease, color 0.12s ease;
+  font-size: 0.52rem;
+  text-shadow: none;
+  box-shadow:
+    0 2px 0 #9a9690,
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  transition: all 0.1s ease;
 }
 
 .key-btn:hover:not(:disabled) {
-  background: #00cc55;
-  color: #020e06;
-  text-shadow: none;
-  border-color: #00cc55;
+  background: linear-gradient(180deg, #dff2e8 0%, #c4e0d0 100%);
+  color: #0a2a16;
+  border-color: #4a8c64;
   box-shadow:
-    0 0 12px rgba(0, 204, 85, 0.85),
-    0 0 24px rgba(0, 204, 85, 0.35);
+    0 2px 0 #3a7050,
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 0 8px rgba(60, 150, 90, 0.35);
 }
 
 .key-btn:disabled {
-  opacity: 0.2;
+  opacity: 0.28;
   cursor: not-allowed;
-  border-color: #111;
   box-shadow: none;
-  text-shadow: none;
+  background: #c8c5be;
 }
 
-/* ── Status bar — yellow card colour ────────────────────────────────── */
+/* ── Status bar ─────────────────────────────────────────────────────── */
 .status-bar {
   margin: 10px 0;
   font-size: 0.6rem;
-  color: #ffe600;
+  color: #b89010;
   letter-spacing: 1px;
-  text-shadow:
-    0 0 8px  rgba(255, 230, 0, 0.9),
-    0 0 20px rgba(255, 230, 0, 0.3);
+  text-shadow: 0 0 6px rgba(184, 144, 16, 0.5);
 }
 
 /* ── Action buttons ─────────────────────────────────────────────────── */
+.status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 8px 0;
+}
+
 .status-actions button {
-  margin: 0 6px;
-  padding: 8px 14px;
+  padding: 7px 12px;
   font-weight: bold;
   cursor: pointer;
   background: transparent;
-  border: 2px solid #00cc55;
-  color: #00cc55;
+  border: 1px solid #2e7a4a;
+  color: #3a9460;
   border-radius: 4px;
   font-family: inherit;
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   letter-spacing: 0.5px;
-  text-shadow: 0 0 6px rgba(0, 204, 85, 0.7);
-  box-shadow: 0 0 8px rgba(0, 204, 85, 0.15);
+  text-shadow: none;
   transition: background 0.12s ease, box-shadow 0.12s ease, color 0.12s ease;
 }
 
-.status-actions button:hover {
-  background: #00cc55;
-  color: #020e06;
-  text-shadow: none;
-  box-shadow:
-    0 0 14px rgba(0, 204, 85, 0.9),
-    0 0 28px rgba(0, 204, 85, 0.4);
+.status-actions button:hover:not(:disabled) {
+  background: #2e7a4a;
+  color: #d8f4e4;
+  box-shadow: 0 0 8px rgba(46, 122, 74, 0.5);
 }
 
-/* ── Hint button (amber, distinct from other action buttons) ────────── */
+.status-actions button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── Hint button (amber accent) ─────────────────────────────────────── */
 .status-actions .hint-btn {
-  border-color: #c8900a;
-  color: #c8900a;
-  text-shadow: 0 0 6px rgba(200, 144, 10, 0.6);
-  box-shadow: 0 0 8px rgba(200, 144, 10, 0.15);
+  border-color: #9e7008;
+  color: #b88c10;
 }
 
 .status-actions .hint-btn:hover:not(:disabled) {
-  background: #c8900a;
-  color: #02080a;
-  text-shadow: none;
-  box-shadow:
-    0 0 14px rgba(200, 144, 10, 0.9),
-    0 0 28px rgba(200, 144, 10, 0.4);
+  background: #9e7008;
+  color: #fef4d0;
+  box-shadow: 0 0 8px rgba(158, 112, 8, 0.5);
 }
 
 /* ── Help modal ─────────────────────────────────────────────────────── */
@@ -179,14 +182,13 @@
   padding: 24px;
   border-radius: 8px;
   max-width: 420px;
+  width: 90vw;
   text-align: left;
-  border: 1px solid #00cc55;
-  box-shadow:
-    0 0 24px rgba(0, 204, 85, 0.2),
-    0 0  2px #00cc55;
+  border: 1px solid #2e7a4a;
+  box-shadow: 0 0 20px rgba(46, 122, 74, 0.18);
   font-size: 0.6rem;
   line-height: 2.2;
-  color: #a8d8b0;
+  color: #98c8a8;
 }
 
 /* ── Win / lose overlay ─────────────────────────────────────────────── */
@@ -196,19 +198,35 @@
   background: rgba(0, 0, 0, 0.9);
   display: grid;
   place-items: center;
-  color: #ffe600;
-  font-size: 0.9rem;
+  color: #b89010;
+  font-size: 0.85rem;
   text-align: center;
-  text-shadow:
-    0 0 10px rgba(255, 230, 0, 0.9),
-    0 0 30px rgba(255, 230, 0, 0.4);
+  text-shadow: 0 0 8px rgba(184, 144, 16, 0.5);
+}
+
+.overlay button {
+  margin: 6px;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 0.55rem;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #2e7a4a;
+  color: #3a9460;
+  border-radius: 4px;
+  transition: all 0.12s ease;
+}
+
+.overlay button:hover {
+  background: #2e7a4a;
+  color: #d8f4e4;
 }
 
 /* ── Streak counter in overlays ─────────────────────────────────────── */
 .streak-display {
-  font-size: 0.65rem;
-  color: #00cc55;
-  text-shadow: 0 0 8px rgba(0, 204, 85, 0.7);
+  font-size: 0.6rem;
+  color: #3a9460;
+  text-shadow: none;
   margin: 4px 0 10px;
 }
 
@@ -219,21 +237,18 @@
   border-radius: 8px;
   width: min(500px, 92vw);
   text-align: center;
-  border: 1px solid #00cc55;
-  box-shadow:
-    0 0 28px rgba(0, 204, 85, 0.2),
-    0 0  2px #00cc55;
-  color: #a8d8b0;
+  border: 1px solid #2e7a4a;
+  box-shadow: 0 0 20px rgba(46, 122, 74, 0.15);
+  color: #98c8a8;
 }
 
 .leaderboard-modal h2 {
-  color: #ffe600;
+  color: #b89010;
   font-size: 0.85rem;
   margin: 0 0 18px;
-  text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+  text-shadow: 0 0 8px rgba(184, 144, 16, 0.4);
 }
 
-/* Tabs */
 .lb-tabs {
   display: flex;
   justify-content: center;
@@ -244,36 +259,34 @@
 .lb-tab {
   padding: 6px 16px;
   font-family: inherit;
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   cursor: pointer;
   background: transparent;
-  border: 1px solid rgba(0, 204, 85, 0.35);
-  color: #90d8a0;
+  border: 1px solid rgba(46, 122, 74, 0.4);
+  color: #70aa88;
   border-radius: 4px;
   transition: all 0.12s ease;
 }
 
 .lb-tab.active,
 .lb-tab:hover {
-  background: #00cc55;
-  color: #020e06;
-  border-color: #00cc55;
-  box-shadow: 0 0 10px rgba(0, 204, 85, 0.6);
+  background: #2e7a4a;
+  color: #d8f4e4;
+  border-color: #2e7a4a;
 }
 
-/* Table */
 .lb-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   margin-bottom: 18px;
 }
 
 .lb-table th {
-  color: #ffe600;
+  color: #b89010;
   text-align: left;
   padding: 6px 10px;
-  border-bottom: 1px solid rgba(0, 204, 85, 0.3);
+  border-bottom: 1px solid rgba(46, 122, 74, 0.3);
 }
 
 .lb-table td {
@@ -282,10 +295,8 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-/* Gold row for rank 1 */
 .lb-table tr.lb-top td {
-  color: #ffe600;
-  text-shadow: 0 0 8px rgba(255, 230, 0, 0.5);
+  color: #b89010;
 }
 
 .lb-empty {
@@ -294,22 +305,65 @@
   opacity: 0.5;
 }
 
-/* Close button */
 .lb-close {
   padding: 8px 22px;
   font-family: inherit;
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   cursor: pointer;
   background: transparent;
-  border: 1px solid rgba(255, 68, 68, 0.5);
-  color: #ff6666;
+  border: 1px solid rgba(160, 64, 64, 0.5);
+  color: #a04040;
   border-radius: 4px;
   transition: all 0.12s ease;
 }
 
 .lb-close:hover {
-  background: #ff4444;
-  color: #020e06;
-  border-color: #ff4444;
-  box-shadow: 0 0 10px rgba(255, 68, 68, 0.6);
+  background: #a04040;
+  color: #fce8e8;
+  border-color: #a04040;
+}
+
+/* ── Mobile responsive ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .app-wrapper {
+    padding: 14px 8px 80px;
+  }
+
+  h1 {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .figure pre {
+    font-size: 1.4rem;
+  }
+
+  .word-display {
+    font-size: 1.4rem;
+    gap: 6px;
+  }
+
+  .letter-box {
+    width: 22px;
+  }
+
+  .keyboard {
+    gap: 3px;
+    padding: 0 6px;
+  }
+
+  .key-btn {
+    padding: 7px 2px;
+    font-size: 0.46rem;
+    border-radius: 3px;
+  }
+
+  .status-bar {
+    font-size: 0.5rem;
+  }
+
+  .status-actions button {
+    padding: 6px 8px;
+    font-size: 0.46rem;
+  }
 }
