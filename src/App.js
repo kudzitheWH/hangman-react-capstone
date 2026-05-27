@@ -36,6 +36,9 @@ function App() {
   const [untimedStreak, setUntimedStreak] = useState(0);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
 
+  // ── Hint state (5 per session) ───────────────────────────────────────
+  const [hintsLeft, setHintsLeft] = useState(5);
+
   // ── Save a score to localStorage ─────────────────────────────────────
   const saveScore = (gameMode, finalScore) => {
     if (finalScore <= 0) return;
@@ -90,6 +93,7 @@ function App() {
     setMode(selectedMode);
     setScore(0);
     setUntimedStreak(0);
+    setHintsLeft(5);
     setTimeLeft(MAX_TIME);
     resetWordOnly();
   };
@@ -130,6 +134,27 @@ function App() {
     }
   };
 
+  // ── Hint: reveal one random unguessed letter (never costs a wrong guess)
+  const useHint = () => {
+    if (hintsLeft <= 0 || gameStatus !== "playing") return;
+    const unguessed = [...new Set(secretWord.split(""))]
+      .filter((l) => !guessedLetters.includes(l));
+    if (unguessed.length === 0) return;
+    const hintLetter = unguessed[Math.floor(Math.random() * unguessed.length)];
+    setHintsLeft((prev) => prev - 1);
+    const updatedGuesses = [...guessedLetters, hintLetter];
+    setGuessedLetters(updatedGuesses);
+    if (checkWin(updatedGuesses)) {
+      if (mode === "timed" && timeLeft > 0) {
+        setScore((prev) => prev + 1);
+        resetWordOnly();
+      } else {
+        setUntimedStreak((prev) => prev + 1);
+        setGameStatus("won");
+      }
+    }
+  };
+
   // ── Mode select screen ───────────────────────────────────────────────
   if (!mode) {
     return (
@@ -164,6 +189,8 @@ function App() {
         timeLeft={timeLeft}
         score={score}
         onChangeMode={resetSession}
+        onHint={useHint}
+        hintsLeft={hintsLeft}
       />
 
       <Keyboard

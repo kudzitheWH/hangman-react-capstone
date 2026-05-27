@@ -9,9 +9,10 @@ function StatusBar({
   mode,
   timeLeft,
   score,
-  onChangeMode
+  onChangeMode,
+  onHint,
+  hintsLeft
 }) {
-  // Format seconds into m:ss
   const formatTime = (secs) => {
     const m = Math.floor(secs / 60);
     const s = secs % 60;
@@ -24,7 +25,6 @@ function StatusBar({
         Wrong guesses: {wrongGuesses} / {maxWrong}
       </p>
 
-      {/* ✅ Timer + score only in timed mode */}
       {mode === "timed" && (
         <p className="timer-line">
           Time left: <strong>{formatTime(timeLeft)}</strong> | Score:{" "}
@@ -36,6 +36,15 @@ function StatusBar({
         <button onClick={onReset} disabled={gameStatus === "timeout"}>
           Restart Word
         </button>
+
+        <button
+          className="hint-btn"
+          onClick={onHint}
+          disabled={hintsLeft <= 0 || gameStatus !== "playing"}
+        >
+          💡 Hint ({hintsLeft})
+        </button>
+
         <button onClick={onHelp}>Help</button>
         <button onClick={onChangeMode}>Change Mode</button>
       </div>
