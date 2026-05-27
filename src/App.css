@@ -186,3 +186,113 @@
     0 0 10px rgba(255, 230, 0, 0.9),
     0 0 30px rgba(255, 230, 0, 0.4);
 }
+
+/* ── Streak counter in overlays ─────────────────────────────────────── */
+.streak-display {
+  font-size: 0.65rem;
+  color: #00cc55;
+  text-shadow: 0 0 8px rgba(0, 204, 85, 0.7);
+  margin: 4px 0 10px;
+}
+
+/* ── Leaderboard modal ──────────────────────────────────────────────── */
+.leaderboard-modal {
+  background: #060f08;
+  padding: 28px 24px;
+  border-radius: 8px;
+  width: min(500px, 92vw);
+  text-align: center;
+  border: 1px solid #00cc55;
+  box-shadow:
+    0 0 28px rgba(0, 204, 85, 0.2),
+    0 0  2px #00cc55;
+  color: #a8d8b0;
+}
+
+.leaderboard-modal h2 {
+  color: #ffe600;
+  font-size: 0.85rem;
+  margin: 0 0 18px;
+  text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+}
+
+/* Tabs */
+.lb-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.lb-tab {
+  padding: 6px 16px;
+  font-family: inherit;
+  font-size: 0.55rem;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgba(0, 204, 85, 0.35);
+  color: #90d8a0;
+  border-radius: 4px;
+  transition: all 0.12s ease;
+}
+
+.lb-tab.active,
+.lb-tab:hover {
+  background: #00cc55;
+  color: #020e06;
+  border-color: #00cc55;
+  box-shadow: 0 0 10px rgba(0, 204, 85, 0.6);
+}
+
+/* Table */
+.lb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.55rem;
+  margin-bottom: 18px;
+}
+
+.lb-table th {
+  color: #ffe600;
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(0, 204, 85, 0.3);
+}
+
+.lb-table td {
+  text-align: left;
+  padding: 7px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Gold row for rank 1 */
+.lb-table tr.lb-top td {
+  color: #ffe600;
+  text-shadow: 0 0 8px rgba(255, 230, 0, 0.5);
+}
+
+.lb-empty {
+  text-align: center !important;
+  padding: 18px !important;
+  opacity: 0.5;
+}
+
+/* Close button */
+.lb-close {
+  padding: 8px 22px;
+  font-family: inherit;
+  font-size: 0.55rem;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgba(255, 68, 68, 0.5);
+  color: #ff6666;
+  border-radius: 4px;
+  transition: all 0.12s ease;
+}
+
+.lb-close:hover {
+  background: #ff4444;
+  color: #020e06;
+  border-color: #ff4444;
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.6);
+}

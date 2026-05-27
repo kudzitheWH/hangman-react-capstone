@@ -1,7 +1,7 @@
 // src/components/ModeSelect.js
 import React from "react";
 
-function ModeSelect({ onSelect, onHelp }) {
+function ModeSelect({ onSelect, onHelp, onLeaderboard }) {
   return (
     <div className="mode-select">
       <h2>Choose Game Mode</h2>
@@ -14,9 +14,12 @@ function ModeSelect({ onSelect, onHelp }) {
         Single Player (Untimed)
       </button>
 
-      {/* ✅ Help button before game starts */}
       <button onClick={onHelp} className="mode-btn help-btn">
         Help / Rules
+      </button>
+
+      <button onClick={onLeaderboard} className="mode-btn">
+        🏆 Leaderboard
       </button>
 
       <p className="mode-note">
