@@ -1,4 +1,4 @@
-// Word bank — original + soccer & World Cup trivia (50+ new words added)
+// Word bank — World Cup players, legendary coaches, host nations
 const words = [
   // ── Original words ──────────────────────────────────────────────────
   "react",
@@ -34,7 +34,7 @@ const words = [
   "netherlands",
   "japan",
 
-  // ── Legendary players ───────────────────────────────────────────────
+  // ── Iconic World Cup players ─────────────────────────────────────────
   "messi",
   "ronaldo",
   "pele",
@@ -55,38 +55,50 @@ const words = [
   "haaland",
   "drogba",
   "suarez",
+  "henry",
+  "thuram",
+  "vieira",
+  "totti",
+  "buffon",
+  "casillas",
+  "gerrard",
+  "lampard",
+  "robben",
+  "sneijder",
+  "torres",
+  "villa",
+  "klose",
+  "muller",
+  "ozil",
+  "schweinsteiger",
+  "cafu",
+  "adriano",
 
-  // ── Soccer / World Cup terms ─────────────────────────────────────────
-  "goalkeeper",
-  "midfielder",
-  "striker",
-  "defender",
-  "penalty",
-  "freekick",
-  "offside",
-  "dribble",
-  "volley",
-  "header",
-  "nutmeg",
-  "assist",
-  "crossbar",
-  "goalpost",
-  "stadium",
-  "referee",
-  "captain",
-  "formation",
-  "possession",
-  "tackle",
-  "corner",
-  "substitute",
+  // ── Legendary coaches of all time (15) ──────────────────────────────
+  "ferguson",
+  "guardiola",
+  "mourinho",
+  "ancelotti",
+  "klopp",
+  "wenger",
+  "capello",
+  "hiddink",
+  "lippi",
+  "loew",
+  "bielsa",
+  "scolari",
+  "sacchi",
+  "michels",
+  "cruyff",
+
+  // ── World Cup competition terms ──────────────────────────────────────
   "champion",
   "trophy",
   "qualifier",
   "tournament",
   "semifinals",
   "hattrick",
-  "equalizer",
-  "wembley"
+  "equalizer"
 ];
 
 export default words;
